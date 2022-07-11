@@ -1,0 +1,1 @@
+*A cozy survival game written in Java*

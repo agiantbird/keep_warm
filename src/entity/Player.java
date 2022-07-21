@@ -120,6 +120,7 @@ public class Player extends Entity {
 
             switch(objectName) {
                 case "PineConeLantern":
+                    gp.playSE(1);
                     hasLantern += 1;
                     gp.obj[i] = null;
                     System.out.println("Pine Cone Lantern: " + hasLantern);

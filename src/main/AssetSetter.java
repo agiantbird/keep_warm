@@ -1,5 +1,6 @@
 package main;
 
+import objects.OBJ_HotSpring;
 import objects.OBJ_PineConeLantern;
 
 public class AssetSetter {
@@ -17,5 +18,9 @@ public class AssetSetter {
         gp.obj[1] = new OBJ_PineConeLantern();
         gp.obj[1].worldX = 23 * gp.tileSize;
         gp.obj[1].worldY = 40 * gp.tileSize;
+
+        gp.obj[2] = new OBJ_HotSpring();
+        gp.obj[2].worldX = 31 * gp.tileSize;
+        gp.obj[2].worldY = 15 * gp.tileSize;
     }
 }

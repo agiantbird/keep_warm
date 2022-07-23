@@ -11,7 +11,7 @@ public class Sound {
 
     public Sound() {
         soundURL[0] = getClass().getResource("/sound/icy_happy_theme.wav");
-        soundURL[1] = getClass().getResource("/sound/snow_step.wav");
+        soundURL[1] = getClass().getResource("/sound/hot_spring.wav");
     }
 
     public void setFile(int i) {

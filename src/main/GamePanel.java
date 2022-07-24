@@ -98,6 +98,11 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         // cast g as graphics 2D for additional functionality
         Graphics2D g2 = (Graphics2D)g;
+        // DEBUG
+        long drawStart = 0;
+        if(keyH.checkDrawTime) {
+            drawStart = System.nanoTime();
+        }
         // tile
         tileM.draw(g2);
         // object
@@ -108,6 +113,14 @@ public class GamePanel extends JPanel implements Runnable {
         }
         // player
         player.draw(g2);
+
+        if(keyH.checkDrawTime) {
+            long drawEnd = System.nanoTime();
+            long elapsed = drawEnd - drawStart;
+            g2.setColor(Color.black);
+            g2.drawString("Draw Time: " + elapsed, 10, 400);
+            System.out.println("Draw Time: " + elapsed);
+        }
         // dispose this graphics context and release any system resources that it's using
         g2.dispose();
     }

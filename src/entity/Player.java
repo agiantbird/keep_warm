@@ -16,7 +16,7 @@ public class Player extends Entity {
 
     public final int screenX;
     public final int screenY;
-    int hasLantern = 0;
+    public int hasLantern = 0;
     boolean hotSpringSoundPlayed = false;
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -133,6 +133,7 @@ public class Player extends Entity {
                     gp.playSE(1);
                     hasLantern += 1;
                     gp.obj[i] = null;
+                    gp.ui.showMessage("You got a pine cone lantern!");
                     System.out.println("Pine Cone Lantern: " + hasLantern);
                     break;
                 case "HotSpring":
@@ -140,6 +141,7 @@ public class Player extends Entity {
                         gp.playSE(1);
                         hotSpringSoundPlayed = true;
                     }
+                    gp.ui.showMessage("A hot spring! You become warm.");
                     System.out.println("Warming up at the hot spring!");
             }
         }

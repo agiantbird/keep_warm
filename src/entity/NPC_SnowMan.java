@@ -12,6 +12,7 @@ public class NPC_SnowMan extends Entity {
         speed = 1;
 
         getImage();
+        setDialogue();
     }
 
     public void getImage() {
@@ -23,6 +24,13 @@ public class NPC_SnowMan extends Entity {
         left2 = setup("npc/snowman_left_2");
         right1 = setup("npc/snowman_right_1");
         right2 = setup("npc/snowman_right_2");
+    }
+
+    public void setDialogue() {
+        dialogues[0] = "...Is it odd to walk in snow when I am snow?";
+        dialogues[1] = "...You walk on carbon and you are carbon.";
+        dialogues[2] = "It, all of it, is all the same thing,\nlooking at itself.";
+        dialogues[3] = "...A squirrel stole my carrot nose.";
     }
 
     public void setAction() {
@@ -50,5 +58,9 @@ public class NPC_SnowMan extends Entity {
 
             actionLockCounter = 0;
         }
+    }
+
+    public void speak() {
+        super.speak();
     }
 }

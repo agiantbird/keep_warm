@@ -9,6 +9,8 @@ public class UI {
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
+    public boolean gameFinished = false;
+    public String currentDialogue = "";
 
 
     public UI(GamePanel gp) {
@@ -29,11 +31,17 @@ public class UI {
         g2.setFont(arial_40);
         g2.setColor(Color.WHITE);
 
+        // PLAY STATE
         if(gp.gameState == gp.playState) {
             // Do playState stuff later
         }
+        // PAUSE STATUE
         if(gp.gameState == gp.pauseState) {
             drawPauseScreen();
+        }
+        // DIALOGUE STATE
+        if(gp.gameState == gp.dialogueState) {
+            drawDialogueScreen();
         }
     }
 
@@ -44,6 +52,51 @@ public class UI {
         int y = gp.screenHeight / 2;
 
         g2.drawString(text, x, y);
+    }
+
+    public void drawDialogueScreen() {
+        // WINDOW
+        int x = gp.tileSize * 2;
+        int y = gp.tileSize / 2;
+        int width = gp.screenWidth - (gp.tileSize * 4);
+        int height = gp.tileSize * 4;
+
+        drawSubWindow(x, y, width, height);
+
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 26F));
+
+        int dialogueX = x + gp.tileSize;
+        int dialogueY = y + gp.tileSize;
+
+        // break up long dialogue to fit dialogue window
+        for(String line : currentDialogue.split("\n")) {
+            g2.drawString(line, dialogueX, dialogueY);
+            // move a row's worth of pixels down for next line of dialogue
+            dialogueY += 40;
+        }
+
+    }
+
+    public void drawSubWindow(int x, int y, int width, int height) {
+        // WINDOW BACKGROUND
+        Color c = new Color(0, 0, 0, 210);
+        g2.setColor(c);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        // WINDOW OUTLINE
+        c = new Color(255, 255, 255);
+        g2.setColor(c);
+        int subWindowOutlineWidth = 5;
+        g2.setStroke(new BasicStroke(subWindowOutlineWidth));
+        g2.drawRoundRect(
+                x + subWindowOutlineWidth,
+                y + subWindowOutlineWidth,
+                width - (2 * subWindowOutlineWidth),
+                height - (2 * subWindowOutlineWidth),
+                25,
+                25
+
+        );
     }
 
     public int getXForCenteredText(String text) {

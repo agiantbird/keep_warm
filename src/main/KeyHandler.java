@@ -35,10 +35,25 @@ public class KeyHandler implements KeyListener {
                     gp.ui.commandNum = 0;
                 }
             }
+            if(code == KeyEvent.VK_ENTER) {
+                if(gp.ui.commandNum == 0) {
+                    gp.gameState = gp.playState;
+                    gp.playMusic(0);
+                }
+                if(gp.ui.commandNum == 1) {
+                    // Load game
+                }
+                if(gp.ui.commandNum == 2) {
+                    System.exit(0);
+                }
+            }
         }
 
         // PLAY STATE
         if(gp.gameState == gp.playState) {
+            if(code == KeyEvent.VK_ESCAPE) {
+                System.exit(0);
+            }
             if(code == KeyEvent.VK_W) {
                 upPressed = true;
             }

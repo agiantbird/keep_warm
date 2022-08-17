@@ -1,22 +1,24 @@
 package objects;
 
-        import main.GamePanel;
+import entity.Entity;
+import main.GamePanel;
 
-        import javax.imageio.ImageIO;
-        import java.io.IOException;
-
-public class OBJ_HotSpring extends SuperObject {
-    GamePanel gp;
+public class OBJ_HotSpring extends Entity {
 
     public OBJ_HotSpring(GamePanel gp) {
+        super(gp);
+
         name = "HotSpring";
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/hot_spring.png"));
-            uTool.scaleImage(image, gp.tileSize, gp.tileSize);
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
+        down1 = setup("objects/hot_spring");
         collision = true;
+        direction = "down";
+
+        solidArea.x = 0;
+        solidArea.y = 16;
+        solidArea.width = 48;
+        solidArea.height = 32;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
     }
 }
 

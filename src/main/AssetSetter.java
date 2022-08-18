@@ -1,6 +1,7 @@
 package main;
 
 import entity.NPC_SnowMan;
+import monster.MON_IceSlime;
 import objects.OBJ_PineConeLantern;
 
 public class AssetSetter {
@@ -24,13 +25,15 @@ public class AssetSetter {
         gp.npc[0] = new NPC_SnowMan(gp);
         gp.npc[0].worldX = gp.tileSize * 21;
         gp.npc[0].worldY = gp.tileSize * 21;
+    }
 
-        gp.npc[1] = new NPC_SnowMan(gp);
-        gp.npc[1].worldX = gp.tileSize * 11;
-        gp.npc[1].worldY = gp.tileSize * 21;
+    public void setMonster() {
+        gp.monster[0] = new MON_IceSlime(gp);
+        gp.monster[0].worldX = gp.tileSize * 23;
+        gp.monster[0].worldY = gp.tileSize * 36;
 
-        gp.npc[2] = new NPC_SnowMan(gp);
-        gp.npc[2].worldX = gp.tileSize * 21;
-        gp.npc[2].worldY = gp.tileSize * 11;
+        gp.monster[1] = new MON_IceSlime(gp);
+        gp.monster[1].worldX = gp.tileSize * 23;
+        gp.monster[1].worldY = gp.tileSize * 37;
     }
 }

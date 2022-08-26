@@ -9,6 +9,7 @@ public class MON_IceSlime extends Entity {
     public MON_IceSlime(GamePanel gp) {
         super(gp);
 
+        type = 2;
         name = "Ice Slime";
         speed = 1;
         maxLife = 4;
